@@ -1,0 +1,11 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding: 1.5em;
+	color: rgb(225,216,181);
+}
+
+.header__title {
+	text-transform: uppercase;
+	font-size: 2em;
+}

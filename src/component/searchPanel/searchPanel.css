@@ -1,0 +1,22 @@
+.search {
+	flex: 0.2;
+}
+
+.search__input {
+	padding: 1em;
+	border-radius: 1em;
+	outline: none;
+	width: 100%;
+}
+
+.search__item {}
+
+.search__history {
+	display: flex;
+	row-gap: 1em;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	color: white;
+	margin: 1em 0.5em;
+}
