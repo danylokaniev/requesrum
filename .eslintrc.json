@@ -51,7 +51,13 @@
 		"semi": ["error", "never"],
 		"react/react-in-jsx-scope": ["warn"],
 		"react/jsx-filename-extension": ["warn"],
-		"no-use-before-define": ["warn", { "functions": true, "classes": true }]
+		"no-use-before-define": ["warn", { "functions": true, "classes": true }],
+		"import/no-extraneous-dependencies": "off",
+		"jsx-a11y/click-events-have-key-events": "warn",
+		"jsx-a11y/no-static-element-interactions": "warn",
+		"jsx-a11y/control-has-associated-label": "warn",
+		"camelcase": "off"
+		// "jsx-a11y/click-events-have-key-events": "warn"
 		// "func-names": ["warn", "as-needed"],
 		// "no-trailing-spaces": ["error", {  }],
 		// "padded-blocks": ["warn", {

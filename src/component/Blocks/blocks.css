@@ -1,0 +1,6 @@
+.blocks {
+	display: flex;
+	flex-flow: row wrap;
+	row-gap: 2em;
+	column-gap: 2em;
+}

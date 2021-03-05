@@ -35,3 +35,7 @@ button, input, optgroup, select, textarea {
 .containter {
 	display: flex;
 }
+
+.content {
+	flex: 0.8;
+}

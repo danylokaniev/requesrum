@@ -1,0 +1,18 @@
+.block {
+	display: flex;
+	flex-flow: column nowrap;
+	row-gap: 1em;
+	background: white;
+	height: 150px;
+	min-width: 500px;
+	flex: 1;
+	padding: 0.5em;
+	border-radius: 8px;
+	justify-content: space-between;
+}
+
+.block__name {}
+
+.block__organization {}
+
+.block_description {}
