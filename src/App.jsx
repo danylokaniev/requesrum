@@ -5,6 +5,7 @@ import store from './redux/store'
 import Header from './component/header/Header'
 import SearchPanel from './component/searchPanel/SearchPanel'
 import Blocks from './component/Blocks/Blocks'
+import Loader from './component/loader/Loader'
 import Pagination from './component/pagination/Pagination'
 
 function App() {

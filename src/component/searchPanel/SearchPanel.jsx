@@ -1,7 +1,7 @@
 import './searchPanel.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, batch } from 'react-redux'
 import React, { useState, useCallback, useEffect } from 'react'
-import { setSearchQuery, setBlocksAmountOnPage } from '../../redux/actions'
+import { setSearchQuery, setBlocksAmountOnPage, addQueryToHistory, startLoader, finishLoader } from '../../redux/actions'
 import { getDataTH } from '../../redux/thunks'
 // import { getDataTH } from '../../redux/thunks'
 
@@ -26,14 +26,23 @@ export default function SearchPanel() {
 
 	const onChange = e => {
 		const { value } = e.target
+		if (!value) {
+			dispatch(finishLoader())
+		} else {
+			dispatch(startLoader())
+		}
 		dispatch(setSearchQuery(value))
 		applyQuery(value)
 	}
 
 	useEffect(() => {
-		if (searchQuery) dispatch(getDataTH())
+		if (searchQuery) {
+			batch(() => {
+				dispatch(addQueryToHistory(searchQuery))
+				dispatch(getDataTH())
+			})
+		}
 	}, [appliedQuery])
-
 
 	return (
 		<div className="search">

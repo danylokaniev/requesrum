@@ -1,14 +1,24 @@
 .block {
 	display: flex;
 	flex-flow: column nowrap;
-	row-gap: 1em;
+	grid-row-gap: 0.5em;
+	row-gap: 0.5em;
 	background: white;
 	height: 150px;
-	min-width: 500px;
-	flex: 1;
-	padding: 0.5em;
+	min-width: 400px;
+	flex: 1 1;
+	padding: 0.75em 1em;
+	font-size: 1.25em;
 	border-radius: 8px;
 	justify-content: space-between;
+}
+
+.block>div {
+	max-height: 1.25em;
+	overflow: hidden;
+	max-width: 400px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .block__name {}
