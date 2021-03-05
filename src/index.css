@@ -54,3 +54,12 @@ button, input, optgroup, select, textarea {
 	justify-content: space-between;
 }
 
+@media (max-width: 800px) {
+	.containter {
+		flex-flow: column;
+	}
+
+	.blocks {
+		grid-template-columns: 1fr;
+	}
+}
