@@ -5,13 +5,14 @@ import thunk from 'redux-thunk'
 import {
 	NEXT_PAGE,
 	PREV_PAGE,
+	SET_PAGE,
+	SET_ERROR,
 	SET_DATA,
 	REMOVE_DATA,
 	START_LOADER,
-	FINISH_LOADER,
+	STOP_LOADER,
 	SET_BLOCKS_AMOUNT_ON_PAGE,
 	SET_SEARCH_QUERY,
-	ADD_QUERY_TO_HISTORY
 } from './const'
 
 const initialState = {
@@ -20,7 +21,7 @@ const initialState = {
 	currentPage: 1,
 	blocksAmountOnPage: 8,
 	searchQuery: '',
-	queryHistory: []
+	error: ''
 }
 
 
@@ -35,6 +36,12 @@ const reducer = (state = initialState, action) => {
 		case SET_DATA:
 			return { ...state, data: action.data }
 
+		case SET_PAGE:
+			return { ...state, currentPage: action.page }
+
+		case SET_ERROR:
+			return { ...state, error: action.error }
+
 		case SET_SEARCH_QUERY:
 			return { ...state, searchQuery: action.query }
 
@@ -44,14 +51,10 @@ const reducer = (state = initialState, action) => {
 		case REMOVE_DATA:
 			return { ...state, data: [] }
 
-		case ADD_QUERY_TO_HISTORY:
-			if (state.queryHistory.length === 5) { return { ...state, queryHistory: [action.query, ...state.queryHistory.slice(0, 4)] } }
-			return { ...state, queryHistory: [action.query, ...state.queryHistory] }
-
 		case START_LOADER:
 			return { ...state, loader: true }
 
-		case FINISH_LOADER:
+		case STOP_LOADER:
 			return { ...state, loader: false }
 
 		default: return state

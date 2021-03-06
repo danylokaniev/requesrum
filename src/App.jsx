@@ -11,19 +11,14 @@ import Pagination from './component/pagination/Pagination'
 function App() {
 	return (
 		<Provider store={store}>
-			<div className="App">
-				<header className="App-header">
-					<Header />
-					<hr />
-					<div className="containter">
-						<SearchPanel />
-						<div className="content">
-							<Blocks />
-							<Pagination />
-						</div>
-					</div>
-
-				</header>
+			<Header />
+			<hr />
+			<div className="containter">
+				<SearchPanel />
+				<div className="content">
+					<Blocks />
+					<Pagination />
+				</div>
 			</div>
 		</Provider>
 

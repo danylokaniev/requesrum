@@ -1,9 +1,12 @@
 .search {
 	flex: 0.2;
+	display: flex;
+	row-gap: 1em;
+	flex-flow: column;
 }
 
 .search__input {
-	padding: 1em;
+	padding: 0.75em;
 	border-radius: 1em;
 	outline: none;
 	width: 100%;
@@ -13,7 +16,7 @@
 
 .search__history {
 	display: flex;
-	row-gap: 1em;
+	row-gap: 0.5em;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: flex-start;

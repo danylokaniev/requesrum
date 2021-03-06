@@ -1,7 +1,7 @@
 import './searchPanel.css'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import React, { useState, useCallback, useEffect } from 'react'
-import { setSearchQuery, setBlocksAmountOnPage, addQueryToHistory, startLoader, finishLoader } from '../../redux/actions'
+import { setSearchQuery, setBlocksAmountOnPage, startLoader, stopLoader, setPage } from '../../redux/actions'
 import { getDataTH } from '../../redux/thunks'
 // import { getDataTH } from '../../redux/thunks'
 
@@ -17,7 +17,7 @@ const debounce = (f, delay) => {
 
 export default function SearchPanel() {
 	const [appliedQuery, setAppliedQuery] = useState('')
-	const { searchQuery, blocksAmountOnPage, queryHistory } = useSelector(state => state)
+	const { searchQuery, blocksAmountOnPage } = useSelector(state => state)
 	const dispatch = useDispatch()
 
 	const applyQuery = useCallback(
@@ -27,7 +27,7 @@ export default function SearchPanel() {
 	const onChange = e => {
 		const { value } = e.target
 		if (!value) {
-			dispatch(finishLoader())
+			dispatch(stopLoader())
 		} else {
 			dispatch(startLoader())
 		}
@@ -37,40 +37,36 @@ export default function SearchPanel() {
 
 	useEffect(() => {
 		if (searchQuery) {
+			addQueryToHistory(searchQuery)
 			batch(() => {
-				dispatch(addQueryToHistory(searchQuery))
+				dispatch(setPage(1))
 				dispatch(getDataTH())
 			})
 		}
 	}, [appliedQuery])
 
+	const addQueryToHistory = query => {
+		const queryHistory = JSON.parse(localStorage.getItem('history')) || []
+		if (queryHistory.length === 5) {
+			localStorage.setItem('history', JSON.stringify([query, ...queryHistory.slice(0, 4)]))
+		} else {
+			localStorage.setItem('history', JSON.stringify([query, ...queryHistory]))
+		}
+	}
+
 	return (
 		<div className="search">
-			<input className="search__input" onChange={onChange} value={searchQuery} />
+			<input className="search__input" onChange={onChange} value={searchQuery} placeholder="Start typing..." />
 			<div className="search__history">
 				Search history:
 				{
-					queryHistory.map(item => (
-						<div className="search__item" key={item}>
+					JSON.parse(localStorage.getItem('history'))?.map((item, index) => (
+						<div className="search__item" key={`${index} ${item}`}>
 							{item}
 						</div>
 					))
 				}
 			</div>
-			<input
-				type="number"
-				list="browsers"
-				value={blocksAmountOnPage}
-				onChange={e => dispatch(setBlocksAmountOnPage(e.target.value))}
-			/>
-
-			<datalist id="browsers">
-				<option value="5" />
-				<option value="8" />
-				<option value="10" />
-				<option value="15" />
-				<option value="20" />
-			</datalist>
 		</div>
 	)
 }

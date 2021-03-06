@@ -4,8 +4,9 @@
 	grid-row-gap: 0.5em;
 	row-gap: 0.5em;
 	background: white;
+	color: black;
 	height: 150px;
-	min-width: 400px;
+	min-width: 250px;
 	flex: 1 1;
 	padding: 0.75em 1em;
 	font-size: 1.25em;

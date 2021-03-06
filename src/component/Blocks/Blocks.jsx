@@ -10,9 +10,8 @@ export default function Blocks() {
 		<div className="blocks">
 			{
 				loader
-					? new Array(blocksAmountOnPage).fill(0).map(_ => (<Loader />))
-					: data.map(gitPage => (<Block key={gitPage.id} name={gitPage.name} description={gitPage.description} organizationsUrl={gitPage.owner.organizations_url} />))
-
+					? new Array(+blocksAmountOnPage)?.fill(0)?.map(_ => (<Loader />))
+					: data?.map(gitPage => (<Block key={gitPage.id} name={gitPage.name} description={gitPage.description} organizationsUrl={gitPage.owner.organizations_url} />))
 			}
 
 		</div>
