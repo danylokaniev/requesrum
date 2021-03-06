@@ -5,7 +5,7 @@
 	column-gap: 2em;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 50em) {
 	.blocks {
 		grid-template-columns: 1fr;
 	}
