@@ -12,18 +12,12 @@
 	font-size: 1.25em;
 	border-radius: 8px;
 	justify-content: space-between;
-}
 
-.block>div {
-	max-height: 1.25em;
+	& > div {
+		max-height: 1.25em;
 	overflow: hidden;
 	max-width: 400px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	}
 }
-
-.block__name {}
-
-.block__organization {}
-
-.block_description {}

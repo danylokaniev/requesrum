@@ -1,5 +1,5 @@
 import React from 'react'
-import './header.css'
+import './header.scss'
 
 export default function Header() {
 	return (
@@ -8,7 +8,7 @@ export default function Header() {
 				<div className="header__title">requesrum</div>
 				<div className="header__subtitle">web development company</div>
 			</div>
-			<div className="header__info">
+			<div>
 				Github users search app
 			</div>
 		</div>

@@ -3,23 +3,21 @@
 	display: flex;
 	row-gap: 1em;
 	flex-flow: column;
-}
 
-.search__input {
-	padding: 0.75em;
-	border-radius: 1em;
-	outline: none;
-	width: 100%;
-}
+	&__input {
+		padding: 0.75em;
+		border-radius: 1em;
+		outline: none;
+		width: 100%;
+	}
 
-.search__item {}
-
-.search__history {
-	display: flex;
+	&__history {
+			display: flex;
 	row-gap: 0.5em;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: flex-start;
 	color: white;
 	margin: 1em 0.5em;
+	}
 }

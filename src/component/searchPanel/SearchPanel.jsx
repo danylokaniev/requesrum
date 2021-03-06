@@ -1,4 +1,4 @@
-import './searchPanel.css'
+import './searchPanel.scss'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import React, { useState, useCallback, useEffect } from 'react'
 import { setSearchQuery, setBlocksAmountOnPage, startLoader, stopLoader, setPage } from '../../redux/actions'
@@ -61,7 +61,7 @@ export default function SearchPanel() {
 				Search history:
 				{
 					JSON.parse(localStorage.getItem('history'))?.map((item, index) => (
-						<div className="search__item" key={`${index} ${item}`}>
+						<div key={`${index} ${item}`}>
 							{item}
 						</div>
 					))

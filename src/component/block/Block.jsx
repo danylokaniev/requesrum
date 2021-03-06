@@ -1,12 +1,12 @@
 import React from 'react'
-import './block.css'
+import './block.scss'
 
 export default function Block({ name, organizationsUrl, description }) {
 	return (
 		<div className="block">
-			<div className="block__name">{name}</div>
-			<div className="block__organization">{description}</div>
-			<div className="block__description">{organizationsUrl}</div>
+			<div>{name}</div>
+			<div>{description}</div>
+			<div>{organizationsUrl}</div>
 		</div>
 	)
 }

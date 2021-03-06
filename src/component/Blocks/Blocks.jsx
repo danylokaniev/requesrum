@@ -1,5 +1,5 @@
 import React from 'react'
-import './blocks.css'
+import './blocks.scss'
 import { useSelector } from 'react-redux'
 import Block from '../block/Block'
 import Loader from '../loader/Loader'
