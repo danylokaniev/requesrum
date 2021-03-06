@@ -2,8 +2,6 @@ import { batch } from 'react-redux'
 
 import { setData, stopLoader, setError } from './actions'
 
-
-/**GET */
 export const getDataTH = () => (dispatch, getState) => {
 	const { blocksAmountOnPage, currentPage, searchQuery } = getState()
 

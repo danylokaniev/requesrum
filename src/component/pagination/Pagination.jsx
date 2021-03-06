@@ -26,11 +26,10 @@ export default function Pagination() {
 	}
 
 	return (
-
 		error
 			? <div className="error">{error}</div>
 			: (
-				searchQuery
+				(searchQuery && data.length)
 				&& (
 					<div className="pagination">
 						<Button variant="contained" onClick={handlePrevPage}><ArrowBackIosIcon /></Button>
