@@ -11,8 +11,10 @@ export const getDataTH = () => (dispatch, getState) => {
 		.then(response => {
 			if (!response.ok) {
 				// this error occur when unauthorized user create too many requests
-				if (response.status === 403) dispatch(setError('Too many requests. Try to reload page'))
-				else dispatch(setError(response.statusText))
+				if (response.status === 403) {
+					dispatch(setError('Too many requests. Try to reload page'))
+					console.error('this error occur when unauthorized user create too many requests')
+				} else dispatch(setError(response.statusText))
 			}
 			return response
 		})

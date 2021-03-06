@@ -9,10 +9,11 @@ import { nextPage, prevPage, startLoader } from '../../redux/actions'
 import './pagination.scss'
 
 export default function Pagination() {
-	const { currentPage, searchQuery, error } = useSelector(state => state)
+	const { currentPage, searchQuery, error, data, blocksAmountOnPage } = useSelector(state => state)
 	const dispatch = useDispatch()
 
 	const handleNextPage = () => {
+		if (data?.length < blocksAmountOnPage) return
 		dispatch(startLoader())
 		dispatch(nextPage())
 		dispatch(getDataTH())

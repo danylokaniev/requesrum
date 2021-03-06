@@ -11,7 +11,7 @@ export default function Blocks() {
 			{
 				loader
 					? new Array(+blocksAmountOnPage)?.fill(0)?.map(_ => (<Loader />))
-					: data?.map(gitPage => (<Block key={gitPage.id} name={gitPage.name} description={gitPage.description} organizationsUrl={gitPage.owner.organizations_url} />))
+					: data?.map(gitPage => (<Block key={gitPage.id} name={gitPage.name} description={gitPage.description} language={gitPage.language} />))
 			}
 
 		</div>

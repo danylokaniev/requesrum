@@ -58,7 +58,8 @@
 		"jsx-a11y/control-has-associated-label": "warn",
 		"camelcase": "off",
 		"no-unused-vars": "warn",
-		"react/no-array-index-key": "warn"
+		"react/no-array-index-key": "warn",
+		"react/jsx-one-expression-per-line": "off"
 		// "jsx-a11y/click-events-have-key-events": "warn"
 		// "func-names": ["warn", "as-needed"],
 		// "no-trailing-spaces": ["error", {  }],
